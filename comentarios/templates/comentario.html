@@ -1,0 +1,32 @@
+{% extends "dashboard.html" %}
+{% block item%}
+<div class="container my-3">
+    <div class="row justify-content-md-center my-3">
+        <div class="col col-xs-8 col-md-8 col-lg-6 my-3">
+            <form class="bg-secondary rounded-3 p-5 mb-3" name="FormComentario" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-floating mb-3">
+                    {{ form.id(class_='form-control',id='floatingInput',placeholder=' ')}}
+                    {{ form.id.label(for='floatingInput') }}
+                </div>
+                <div class="form-floating mb-3">
+                    {{ form.Pelicula(class_='form-control',id='floatingInput',placeholder=' ')}}
+                    {{ form.Pelicula.label(for='floatingInput') }}
+                </div>
+                <div class="form-floating mb-3">
+                    {{ form.Comentario(class_='form-control',id='floatingInput',placeholder=' ')}}
+                    {{ form.Comentario.label(for='floatingInput') }}
+                </div>
+                <div class="form-floating mb-3">
+                    {{ form.Usuario(class_='form-control',id='floatingInput',placeholder=' ')}}
+                    {{ form.Usuario.label(for='floatingInput') }}
+                </div>
+
+                <div class="d-grid col-6 mx-auto">
+                    {{ form.Actualizar(class_='btn btn-primary',type='submit') }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
