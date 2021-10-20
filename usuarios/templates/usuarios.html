@@ -1,0 +1,69 @@
+{% extends "dashboard.html" %}
+{% block item%}
+<a class="btn btn-primary btn-lg rounded-pill fw-bold m-3" href="{{ url_for('usuario.blueprint.crearUsuario') }}" role="button"><i
+        class="fal fa-calendar-plus"></i> Nuevo</a>
+
+<div class="lh-lg p-1">
+    <div class="d-flex row justify-content-center flex-nowrap bd-highlight mb-3 text-center fw-bolder text-white">
+        <div class="col-1 bg-danger py-3 rounded-start">
+            <div>No</div>
+        </div>
+        <div class="col-2 bg-danger py-3">
+            <div>Nombre</div>
+        </div>
+        <div class="col-2 bg-danger py-3">
+            <div>Edad</div>
+        </div>
+        <div class="col-1 bg-danger py-3">
+            <div>Cedula</div>
+        </div>
+        <div class="col-1 bg-danger py-3">
+            <div>Rol</div>
+        </div>
+        <div class="col-2 bg-danger py-3">
+            <div>Email</div>
+        </div>
+        <div class="col-1 bg-danger py-3">
+            <div>Telefono</div>
+        </div>
+        <div class="col-1 bg-danger py-3">
+            <div>Editar</div>
+        </div>
+
+    </div>
+    {%for u in usuarios%}
+    <div class="row justify-content-center bd-highlight mb-3 text-center text-white">
+        <div class="col-1 bg-secondary lh-lg p-1 rounded-start">
+            <div>{{ u[0] }}</div>
+        </div>
+        <div class="col-2 bg-secondary lh-lg p-1 ">
+            <div>{{ u[1] }}</div>
+        </div>
+        <div class="col-2 bg-secondary lh-lg p-1">
+            <div>{{ u[2] }}</div>
+        </div>
+        <div class="col-1 bg-secondary lh-lg p-1">
+            <div>{{ u[3] }}</div>
+        </div>
+        <div class="col-1 bg-secondary lh-lg p-1">
+            <div>{{ u[4] }}</div>
+        </div>
+        <div class="col-2 bg-secondary lh-lg p-1">
+            <div>{{ u[5] }}</div>
+        </div>
+        <div class="col-1 bg-secondary lh-lg p-1">
+            <div>{{ u[6] }}</div>
+        </div>
+        <div class="col-1 bg-secondary lh-lg p-1 rounded-end">
+            <div>
+                <a class="btn btn-primary" href="{{ url_for('usuario.blueprint.editarUsuario', Cedula=u[3]) }}" role="button">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a class="btn btn-danger" href="{{ url_for('usuario.blueprint.eliminarUsuario', Cedula=u[3]) }}" role="button">
+                     <i class="fas fa-trash-alt"></i>
+                 </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
