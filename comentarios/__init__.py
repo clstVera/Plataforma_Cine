@@ -24,7 +24,7 @@ def crearComentario():
         comentario.Comentario = request.form["Comentario"]
         comentario.Usuario = request.form["Usuario"]
         sql_insert_comentario(comentario)
-        return redirect(url_for('verComentarios'))
+        return redirect(url_for('comentario_blueprint.verComentarios'))
 
 @comentario_blueprint.route('/comentarios/edit/<id>', methods=['GET', 'POST'])
 def editarComentario(id,):
@@ -38,7 +38,7 @@ def editarComentario(id,):
         comentario.Usuario = form.Usuario.data
         
         sql_edit_comentario(comentario)
-        return redirect(url_for('verComentarios'))
+        return redirect(url_for('comentario_blueprint.verComentarios'))
 
     form.id.data = comentario[0]
     form.Pelicula.data = comentario[1]
@@ -50,5 +50,5 @@ def editarComentario(id,):
 @comentario_blueprint.route('/comentarios/delete/<id>', methods=['GET'])
 def eliminarComentario(id,):
     sql_delete_comentario(id)
-    return redirect(url_for('verComentarios'))
+    return redirect(url_for('comentario_blueprint.verComentarios'))
     
