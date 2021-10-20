@@ -1,0 +1,80 @@
+{% extends "dashboard.html" %}
+{% block item%}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-11">
+            <a class="btn btn-primary btn-lg rounded-pill fw-bold m-3" href="{{ url_for('funcion_blueprint.crearFuncion') }}"
+                role="button"><i class="fal fa-calendar-plus"></i> Nuevo</a>
+            <div class="lh-lg p-1">
+                <div class="d-flex flex-row flex-nowrap bd-highlight m-3 text-center fw-bolder text-white">
+                    <div class="col-1 bg-danger py-3 rounded-start">
+                        <div>Id Funcion</div>
+                    </div>
+                    <div class="col-1 bg-danger py-3">
+                        <div>Id Pelicula</div>
+                    </div>
+                    <div class="col-2 bg-danger py-3">
+                        <div>Fecha</div>
+                    </div>
+                    <div class="col-2 bg-danger py-3">
+                        <div>Horario</div>
+                    </div>
+                    <div class="col-1 bg-danger py-3">
+                        <div>Formato</div>
+                    </div>
+                    <div class="col-2 bg-danger py-3">
+                        <div>Idioma</div>
+                    </div>
+                    <div class="col-1 bg-danger py-3">
+                        <div>Sala</div>
+                    </div>
+                    <div class="col-1 bg-danger py-3">
+                        <div>Calificación</div>
+                    </div>
+                    <div class="col-1 bg-danger py-3 rounded-end">
+                        <div>Opciones</div>
+                    </div>
+                </div>
+            </div>
+            {%for f in funciones%}
+            <div class="d-flex flex-row flex-nowrap bd-highlight m-3 text-center" style="z-index: 1;">
+                <div class="col-1 bg-secondary lh-lg p-1 rounded-start">
+                    <div>{{ f[0] }}</div>
+                </div>
+                <div class="col-1 bg-secondary lh-lg p-1">
+                    <div>{{ f[7] }}</div>
+                </div>
+                <div class="col-2 bg-secondary lh-lg p-1">
+                    <div>{{ f[1] }}</div>
+                </div>
+                <div class="col-2 bg-secondary lh-lg p-1">
+                    <div>{{ f[2] }}</div>
+                </div>
+                <div class="col-1 bg-secondary lh-lg p-1">
+                    <div>{{ f[3] }}</div>
+                </div>
+                <div class="col-2 bg-secondary lh-lg p-1">
+                    <div>{{ f[4] }}</div>
+                </div>
+                <div class="col-1 bg-secondary lh-lg p-1">
+                    <div>{{ f[5] }}</div>
+                </div>
+                <div class="col-1 bg-secondary lh-lg p-1">
+                    <div>{% if f[6] %}{{ f[6] }}{% endif %}</div>
+                </div>
+                <div class="col-1 bg-secondary lh-lg p-1 rounded-end">
+                    <div>
+                        <a class="btn btn-primary" href="{{ url_for('funcion_blueprint.editarFuncion', idFuncion=f[0]) }}" role="button">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a class="btn btn-danger" href="{{ url_for('funcion_blueprint.eliminarFuncion', idFuncion=f[0]) }}" role="button">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

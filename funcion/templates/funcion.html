@@ -1,0 +1,58 @@
+{% extends "dashboard.html" %}
+{% block item%}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-7">
+            <p class="fs-4 fw-bold text-center text-white bg-danger rounded-3 p-2">Gestión de Funciones</p>
+            <form class="bg-secondary rounded-3 p-5 mb-3" name="FormFuncion" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="row g-2">
+                    <div class="col-3 form-floating mb-3">
+                        {{ form.idPelicula(class_='form-control',id='floatingInput',placeholder='#')}}
+                        {{ form.idPelicula.label(for='floatingInput') }}
+                    </div>
+                    <div class="col-5 form-floating mb-3">
+                        {{ form.fecha(class_='datepicker
+                        form-control',id='floatingInput',placeholder='#')}}{{form.hidden_tag()}}
+                        {{ form.fecha.label(for='floatingInput') }}
+                    </div>
+                    <div class="col-4 form-floating mb-3">
+                        {{ form.horario(class_='form-control',id='floatingSelect',placeholder='#')}}
+                        {{ form.horario.label(for='floatingSelect') }}
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <div class="col-4 form-floating mb-3">
+                        {{ form.formato(class_='form-control',id='floatingSelect',placeholder='#')}}
+                        {{ form.formato.label(for='floatingSelect') }}
+                    </div>
+                    <div class="col-4 form-floating mb-3">
+                        {{ form.idioma(class_='form-control',id='floatingSelect',placeholder='#')}}
+                        {{ form.idioma.label(for='floatingSelect') }}
+                    </div>
+                    <div class="col-4 form-floating mb-3">
+                        {{ form.sala(class_='form-control',id='floatingSelect',placeholder='#')}}
+                        {{ form.sala.label(for='floatingSelect') }}
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <fieldset class="col-7" disabled>
+                        <div class="row g-2">
+                            <div class="col-7 form-floating mb-3">
+                                {{ form.calificacion(class_='form-control',id='floatingInput',placeholder='#')}}
+                                {{ form.calificacion.label(for='floatingInput') }}
+                            </div>
+                            <div class="col-5 form-floating mb-3">
+                                {{ form.idFuncion(class_='form-control',id='floatingInput',placeholder='#')}}
+                                {{ form.idFuncion.label(for='floatingInput') }}
+                            </div>
+                    </fieldset>
+                    <div class="d-grid col-5 mx-auto mb-3">
+                        {{ form.enviar(class_='btn btn-primary btn-lg rounded-pill fw-bold',type='submit')}}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

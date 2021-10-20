@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{% block contenido%}
+<div class="fixed-top bg-dark" style="z-index: 2;">
+    <p class="fs-3 fw-bolder text-center text-white m-2">Dashboard Administrativo</p>
+    <ul class="nav nav-pills nav-fill border-bottom border-3 border-primary m-2">
+        <li class="nav-item">
+            <a class="nav-link fs-5 fw-bold text-center" aria-current="page"
+                href="{{ url_for('verUsuarios') }}">Usuarios</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link fs-5 fw-bold text-center" aria-current="page"
+                href="{{ url_for('pelicula_blueprint.verPelicula') }}">Peliculas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link fs-5 fw-bold text-center" aria-current="page"
+                href="{{ url_for('funcion_blueprint.verFuncion') }}">Funciones</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link fs-5 fw-bold text-center" aria-current="page"
+                href="{{ url_for('verComentarios') }}">Comentarios</a>
+        </li>
+    </ul>
+</div>
+<div class="" style="height: 125px; z-index: 3;"></div>
+{% block item%}
+{% endblock %}
+{% endblock %}

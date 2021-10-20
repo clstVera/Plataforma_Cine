@@ -1,0 +1,95 @@
+{% extends "dashboard.html" %}
+{% block item%}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-11">
+            <p class="fs-4 fw-bold text-center text-white bg-danger rounded-3 p-2">Gestión de Peliculas</p>
+            <form class="bg-secondary rounded-3 p-5 mb-3" name="FormPelicula" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="row g-2">
+                    <div class="col-6 form-floating mb-3">
+                        {{ form.titulo(class_='form-control',id='floatingInput',placeholder='#')}}
+                        {{ form.titulo.label(for='floatingInput') }}
+                    </div>
+                    <div class="col-6 form-floating mb-3">
+                        {{ form.tituloOriginal(class_='form-control',id='floatingInput',placeholder='#')}}
+                        {{ form.tituloOriginal.label(for='floatingInput') }}
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <div class="col-4 form-floating mb-3">
+                        {{ form.genero(class_='form-control',id='floatingSelect',placeholder='#')}}
+                        {{ form.genero.label(for='floatingSelect') }}
+                    </div>
+                    <div class="col-4 form-floating mb-3">
+                        {{ form.clasificacion(class_='form-control',id='floatingSelect',placeholder='#')}}
+                        {{ form.clasificacion.label(for='floatingSelect') }}
+                    </div>
+                    <div class="col-4 form-floating mb-3">
+                        {{ form.paisOrigen(class_='form-control',id='floatingInput',placeholder='#')}}
+                        {{ form.paisOrigen.label(for='floatingInput') }}
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <div class="col-4 form-floating mb-3">
+                        {{ form.duracion(class_='form-control',id='floatingInput',placeholder='#')}}
+                        {{ form.duracion.label(for='floatingInput') }}
+                    </div>
+                    <div class="col-4 form-floating mb-3">
+                        {{ form.estreno(class_='datepicker
+                        form-control',id='floatingInput',placeholder='#')}}{{form.hidden_tag()}}
+                        {{ form.estreno.label(for='floatingInput') }}
+                    </div>
+                    <div class="col-4 form-floating mb-3">
+                        {{ form.director(class_='form-control',id='floatingInput',placeholder='#')}}
+                        {{ form.director.label(for='floatingInput') }}
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <div class="col-6 form-floating mb-3">
+                        {{ form.actores(class_='form-control',id='floatingTextarea',placeholder='#',style='height:
+                        100px')}}
+                        {{ form.actores.label(for='floatingTextarea') }}
+                    </div>
+                    <div class="col-6 form-floating mb-3">
+                        {{ form.descripcion(class_='form-control',id='floatingTextarea',placeholder='#',style='height:
+                        100px')}}
+                        {{ form.descripcion.label(for='floatingTextarea') }}
+                    </div>
+                </div>
+
+                <div class="row g-2">
+                    <div class="col-6 form-floating mb-3">
+                        {{ form.imagen(class_='form-control',id='floatingInput',placeholder='#')}}
+                        {{ form.imagen.label(for='floatingInput') }}
+                    </div>
+                    <div class="col-6 form-floating mb-3">
+                        {{ form.trailer(class_='form-control',id='floatingInput',placeholder='#')}}
+                        {{ form.trailer.label(for='floatingInput') }}
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <fieldset class="col-6" disabled>
+                        <div class="row g-2">
+                            <div class="col-4 form-floating mb-3">
+                                {{ form.calificacion(class_='form-control',id='floatingInput',placeholder='#')}}
+                                {{ form.calificacion.label(for='floatingInput') }}
+                            </div>
+                            <div class="col-4 form-floating mb-3">
+                                {{ form.votos(class_='form-control',id='floatingInput',placeholder='#')}}
+                                {{ form.votos.label(for='floatingInput') }}
+                            </div>
+                            <div class="col-4 form-floating mb-3">
+                                {{ form.idPelicula(class_='form-control',id='floatingInput',placeholder='#')}}
+                                {{ form.idPelicula.label(for='floatingInput') }}
+                            </div>
+                    </fieldset>
+                    <div class="d-grid col-6 mx-auto mb-3">
+                        {{ form.enviar(class_='btn btn-primary btn-lg rounded-pill fw-bold my-2',type='submit')}}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

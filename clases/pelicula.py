@@ -1,0 +1,16 @@
+class Pelicula:
+    idPelicula: int
+    titulo: str
+    titulo_original: str
+    genero: str
+    clasificacion: str
+    duracion: str
+    estreno: str
+    director: str
+    actores: str
+    pais_origen: str
+    descripcion: str
+    imagen: str
+    trailer: str
+    calificacion: str
+    votos: str

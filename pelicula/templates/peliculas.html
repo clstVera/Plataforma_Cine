@@ -1,0 +1,119 @@
+{% extends "dashboard.html" %}
+{% block item%}
+<a class="btn btn-primary btn-lg rounded-pill fw-bold m-3" href="{{ url_for('pelicula_blueprint.crearPelicula') }}" role="button">
+    <i class="fas fa-plus"></i> Nuevo</a>
+<div class="lh-lg p-1">
+    <div class="d-flex flex-row flex-nowrap bd-highlight m-3 text-center fw-bolder text-white">
+        <div class="col-1 bg-danger py-3 rounded-start">
+            <div>Id Pelicula</div>
+        </div>
+        <div class="col-2 bg-danger py-3">
+            <div>Titulo</div>
+        </div>
+        <div class="col-2 bg-danger py-3">
+            <div>Titulo Original</div>
+        </div>
+        <div class="col-1 bg-danger py-3">
+            <div>Genero</div>
+        </div>
+        <div class="col-1 bg-danger py-3">
+            <div>Clasificacion</div>
+        </div>
+        <div class="col-1 bg-danger py-3">
+            <div>Duración</div>
+        </div>
+        <div class="col-1 bg-danger py-3">
+            <div>Estreno</div>
+        </div>
+        <div class="col-1 bg-danger py-3">
+            <div>Director</div>
+        </div>
+        <div class="col-2 bg-danger py-3">
+            <div class="text-truncate">Actores</div>
+        </div>
+        <div class="col-1 bg-danger py-3">
+            <div>Pais Origen</div>
+        </div>
+        <div class="col-2 bg-danger py-3">
+            <div class="text-truncate">Descripcion</div>
+        </div>
+        <div class="col-1 bg-danger py-3">
+            <div class="text-truncate">Imagen</div>
+        </div>
+        <div class="col-1 bg-danger py-3">
+            <div class="text-truncate">Trailer</div>
+        </div>
+        <div class="col-1 bg-danger py-3">
+            <div>Calificación</div>
+        </div>
+        <div class="col-1 bg-danger py-3">
+            <div>Votos</div>
+        </div>
+        <div class="col-1 bg-danger py-3 rounded-end">
+            <div>Opciones</div>
+        </div>
+    </div>
+</div>
+{%for p in peliculas%}
+<div class="d-flex flex-row flex-nowrap bd-highlight m-3 text-center" style="z-index: 1;">
+    <div class="col-1 bg-secondary lh-lg p-1 rounded-start">
+        <div>{{ p[0] }}</div>
+    </div>
+    <div class="col-2 bg-secondary lh-lg p-1">
+        <div>{{ p[1] }}</div>
+    </div>
+    <div class="col-2 bg-secondary lh-lg p-1">
+        <div>{{ p[2] }}</div>
+    </div>
+    <div class="col-1 bg-secondary lh-lg p-1">
+        <div>{{ p[3] }}</div>
+    </div>
+    <div class="col-1 bg-secondary lh-lg p-1">
+        <div>{{ p[4] }}</div>
+    </div>
+    <div class="col-1 bg-secondary lh-lg p-1">
+        <div>{{ p[5] }}</div>
+    </div>
+    <div class="col-1 bg-secondary lh-lg p-1">
+        <div>{{ p[6] }}</div>
+    </div>
+    <div class="col-1 bg-secondary lh-lg p-1">
+        <div>{{ p[7] }}</div>
+    </div>
+    <div class="col-2 bg-secondary lh-lg p-1">
+        <div class="text-truncate">{{ p[8]}}</div>
+    </div>
+    <div class="col-1 bg-secondary lh-lg p-1">
+        <div>{{ p[9] }}</div>
+    </div>
+    <div class="col-2 bg-secondary lh-lg p-1">
+        <div class="text-truncate">{{ p[10] }}</div>
+    </div>
+    <div class="col-1 bg-secondary lh-lg p-1">
+        <a class="btn btn-primary" href="{{p[11]}}" role="button">
+            <i class="far fa-images"></i></a>
+    </div>
+    <div class="col-1 bg-secondary lh-lg p-1">
+        <a class="btn btn-primary" href="{{p[12]}}" role="button">
+            <i class="fas fa-film"></i></a>
+    </div>
+    <div class="col-1 bg-secondary lh-lg p-1">
+        <div> {% if p[13] %}{{ p[13] }}{% endif %}</div>
+    </div>
+    <div class="col-1 bg-secondary lh-lg p-1">
+        <div>{% if p[13] %}{{ p[14] }}{% endif %}</div>
+    </div>
+    <div class="col-1 bg-secondary lh-lg p-1 rounded-end">
+        <div>
+            <a class="btn btn-primary" href="{{ url_for('pelicula_blueprint.editarPelicula', idPelicula=p[0]) }}" role="button">
+                <i class="fa fa-pencil"></i>
+            </a>
+            <a class="btn btn-danger" href="{{ url_for('pelicula_blueprint.eliminarPelicula', idPelicula=p[0]) }}" role="button">
+                <i class="fas fa-trash-alt"></i>
+            </a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+class Funcion:
+    idFuncion: int
+    fecha: str
+    horario: str
+    formato: str
+    idioma: str
+    sala: str
+    calificacion: str
+    idPelicula: int
