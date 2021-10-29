@@ -1,4 +1,5 @@
 {% extends "dashboard.html" %}
+
 {% block item%}
 <a class="btn btn-primary btn-lg rounded-pill fw-bold m-3" href="{{ url_for('pelicula_blueprint.crearPelicula') }}" role="button">
     <i class="fas fa-plus"></i> Nuevo</a>
@@ -84,7 +85,7 @@
         <div class="text-truncate">{{ p[8]}}</div>
     </div>
     <div class="col-1 bg-secondary lh-lg p-1">
-        <div class="text-truncate"><div>{{ p[9] }}</div></div>
+        <div>{{ p[9] }}</div>
     </div>
     <div class="col-2 bg-secondary lh-lg p-1">
         <div class="text-truncate">{{ p[10] }}</div>

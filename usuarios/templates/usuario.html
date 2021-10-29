@@ -1,0 +1,43 @@
+{% extends "dashboard.html" %}
+{% block item%}
+<div class="container my-3">
+    <div class="row justify-content-md-center my-3">
+        <div class="col col-xs-8 col-md-8 col-lg-6 my-3">
+            <form class="bg-secondary rounded-3 p-5 mb-3" name="FormUsuario" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-floating mb-3" >
+                    {{ form.No(class_='form-control',id='floatingInput',placeholder=' ')}}
+                    {{ form.No.label(for='floatingInput') }}
+                </div>
+                <div class="form-floating mb-3">
+                    {{ form.Nombre(class_='form-control',id='floatingInput',placeholder=' ')}}
+                    {{ form.Nombre.label(for='floatingInput') }}
+                </div>
+                <div class="form-floating mb-3">
+                    {{ form.Password(class_='form-control',id='floatingInput',placeholder=' ')}}
+                    {{ form.Password.label(for='floatingInput') }}
+                </div>
+                <div class="form-floating mb-3">
+                    {{ form.Cedula(class_='form-control',id='floatingInput',placeholder=' ')}}
+                    {{ form.Cedula.label(for='floatingInput') }}
+                </div>
+                <div class="form-floating mb-3">
+                    {{ form.Rol(class_='form-control',id='floatingInput',placeholder=' ')}}
+                    {{ form.Rol.label(for='floatingInput') }}
+                </div>
+                <div class="form-floating mb-3">
+                    {{ form.Email(class_='form-control',id='floatingInput',placeholder=' ')}}
+                    {{ form.Email.label(for='floatingInput') }}
+                </div>
+                <div class="form-floating mb-3">
+                    {{ form.Telefono(class_='form-control',id='floatingInput',placeholder=' ')}}
+                    {{ form.Telefono.label(for='floatingInput') }}
+                </div>
+                <div class="d-grid col-6 mx-auto">
+                    {{ form.enviar(class_='btn btn-primary',type='submit') }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

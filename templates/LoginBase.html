@@ -1,0 +1,32 @@
+{% extends "dashboard.html" %}
+{% block item%}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-11">
+            <p class="fs-4 fw-bold text-center text-white bg-danger rounded-3 p-2">Login</p>
+            <a class="btn btn-primary btn-lg rounded-pill fw-bold m-3" href="{{ url_for('usuario_blueprint.crearUsuarioFinal') }}" role="button"><i
+                class="fal fa-calendar-plus"></i> Registrese aquí</a>
+        
+            <form class="bg-secondary rounded-3 p-5 mb-3" name="FormPelicula" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="row g-2">
+                    <div class="col-6 form-floating mb-3">
+                        {{ form.User(class_='form-control',id='floatingInput',placeholder='#')}}
+                        {{ form.User.label(for='floatingInput') }}
+                    </div>
+                    <div class="col-6 form-floating mb-3">
+                        {{ form.Password(class_='form-control',id='floatingInput',placeholder='#')}}
+                        {{ form.Password.label(for='floatingInput') }}
+                    </div>
+                </div>
+                    </fieldset>
+                    <div class="d-grid col-6 mx-auto mb-3">
+                        {{ form.Login(class_='btn btn-primary btn-lg rounded-pill fw-bold my-2',type='submit')}}
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

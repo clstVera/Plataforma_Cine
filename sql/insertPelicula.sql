@@ -69,7 +69,7 @@ INSERT INTO Pelicula (
                      (
                          NULL,
                          NULL,
-                         'https://www.youtube.com/watch?v=kCdjpKpACn0',
+                         'https://www.youtube.com/embed/kCdjpKpACn0',
                          'https://i.ibb.co/YcNP8Rv/Sin-Tiempo-Para-Morir.jpg',
                          'En Sin Tiempo Para Morir, Bond ha dejado el servicio activo y disfruta de una vida tranquila en Jamaica. Su paz es efímera cuando su viejo amigo Félix Leiter de la CIA aparece pidiendo ayuda. La misión de rescatar a un científico secuestrado resulta ser mucho más traicionera de lo esperado, llevando a Bond a la pista de un misterioso villano armado con nueva tecnología peligrosa.',
                          'United Kingdom, United States of America',

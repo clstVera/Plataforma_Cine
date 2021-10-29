@@ -78,3 +78,16 @@ def sql_delete_funcion(id):
         con.close()
     except Error as err:
         print(err)
+
+def sql_select_funcionDetalle(id):
+    try:
+        sql = "select * from Funcion inner join Pelicula on Funcion.idPelicula = Pelicula.idPelicula where Pelicula.idPelicula = ?;"
+        data = (id,)
+        con = sql_connection()
+        cursorObj = con.cursor()
+        cursorObj.execute(sql, data)
+        funcion = cursorObj.fetchall()
+        
+        return funcion
+    except Error as err:
+        print(err)

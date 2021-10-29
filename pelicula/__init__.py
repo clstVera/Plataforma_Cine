@@ -1,11 +1,50 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, session, flash
 
 from datetime import datetime
 from forms.formPelicula import FormPelicula
+import  forms.formPelicula
 from clases.pelicula import Pelicula
-from database.dbPelicula import sql_select_pelicula, sql_select_peliculas, sql_insert_pelicula, sql_edit_pelicula, sql_delete_pelicula
+from database.dbPelicula import sql_select_pelicula, sql_select_peliculas, sql_insert_pelicula, sql_edit_pelicula, sql_delete_pelicula, sql_connection
+from database.dbFuncion import sql_select_funcion, sql_select_funcionDetalle
 
 pelicula_blueprint = Blueprint('pelicula_blueprint', __name__, template_folder='templates')
+funciones_blueprint = Blueprint('pelicula_blueprint', __name__, template_folder='templates')
+
+@pelicula_blueprint.route("/", methods=['GET', 'POST'])
+def index():
+    if request.method == "GET":
+        sql_connection()
+        peliculas = sql_select_peliculas()
+        return render_template('index.html', peliculas=peliculas)
+  
+        
+
+@pelicula_blueprint.route("/indexlogeado", methods=['GET', 'POST'])
+def indexlogeado():
+        if 'cedula' in session:
+                sql_connection()
+                peliculas = sql_select_peliculas()
+                return render_template('indexlogeado.html', peliculas=peliculas)
+        sql_connection()
+        peliculas = sql_select_peliculas()
+        
+        return render_template('indexlogeado.html',peliculas=peliculas)  
+
+
+@pelicula_blueprint.route("/funcionesindex/<int:idpelicula>",  methods=['GET', 'POST'])
+def funcionesindex(idpelicula):
+    peliculasdetalle=sql_select_pelicula(idpelicula)
+    detallefuncion=sql_select_funcionDetalle(idpelicula)
+    print(detallefuncion)
+    return render_template("funcionesindex.html", peliculasdetalle=peliculasdetalle, detallefuncion=detallefuncion)
+
+@pelicula_blueprint.route("/funcionesnologeo/<int:idpelicula>",  methods=['GET', 'POST'])
+def funcionesnologeo(idpelicula):
+    peliculasdetalle=sql_select_pelicula(idpelicula)
+    detallefuncion=sql_select_funcionDetalle(idpelicula)
+    print(detallefuncion)
+    return render_template("funcionesnologeo.html", peliculasdetalle=peliculasdetalle, detallefuncion=detallefuncion)
+
 
 @pelicula_blueprint.route('/peliculas/')
 def verPelicula():
@@ -79,3 +118,19 @@ def editarPelicula(idPelicula):
 def eliminarPelicula(idPelicula):
     sql_delete_pelicula(idPelicula)
     return redirect(url_for('pelicula_blueprint.verPelicula'))
+
+@pelicula_blueprint.route("/busqueda",methods=['POST','GET'])
+def busqueda():
+    if request.method == "POST": 
+          
+     buscar = request.form["Buscar"]
+     
+     sql = "select * from Pelicula where titulo like ?"   
+     con = sql_connection()
+     cursorObj = con.cursor()
+     cursorObj.execute(sql,['%'+buscar+'%'],)
+     peliculas = cursorObj.fetchall()
+     return render_template("busquedaPeliculas.html",buscar=buscar, peliculas=peliculas)
+    
+    else:
+        return "bad request"

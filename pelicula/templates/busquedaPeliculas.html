@@ -1,0 +1,64 @@
+{% extends "layaout.html" %}
+
+{% block body %}
+
+ <!-- Buscador-->
+
+ <div class="container">
+    <nav class="navbar navbar-light pt-4  ">
+        <form method="POST" action="/busqueda">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label text-white fw-bold h5">BUSCAR</label>
+              <input type="text" class="form-control" name="Buscar"   placeholder="Ingrese ">
+             </div> 
+            
+            <button type="submit" class="btn btn-primary">Buscar</button>
+          </form>
+    </nav>
+</div>
+
+<div class="container text-left text-light  ">
+    <h1 class="h4 fw-bold">Resultado de busqueda "{{ buscar }}" </h1>
+</div>
+{% for p in peliculas %}
+<div class="container w-75 p-4">
+    
+    
+    <div class="row bg-light pt-2 pb-2 rounded-3 w-auto ">
+        <div class="col-2  ps-5">
+            <img src=" {{ p[11] }}" alt="" width="110" height="150">
+        </div>
+        <div class="col-3  pt-4 pb-2 fw-bold">
+            <p>
+                {{ p[1] }}
+            </p>
+            <p>
+                Estreno: {{ p[6] }}
+            </p>
+            <p>
+                Genero: {{ p[3] }}
+            </p>
+        </div>
+        <div class="col-3  pt-4 pb-2 fw-bold">
+            <p>
+                Duracion: {{ p[5] }}
+            </p>
+            <p>
+                Clasificacion:
+            </p>
+            <p>
+                Mayores de {{ p[4] }} años
+            </p>
+        </div>
+        <div class="col-1  pt-4 pb-2 fw-bold">
+
+            <i class="bi bi-box-arrow-up-right display-6"></i>
+        </div>
+        </div>
+    </div>
+    
+</div>
+{% endfor %}
+
+
+{% endblock %}

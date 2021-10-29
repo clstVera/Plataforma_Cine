@@ -1,0 +1,51 @@
+{% extends "dashboard.html" %}
+{% block item%}
+<a class="btn btn-primary btn-lg rounded-pill fw-bold m-3" href="{{ url_for('comentario_blueprint.crearComentario') }}" role="button"><i
+        class="fas fa-plus"></i> Nuevo</a>
+
+<div class="lh-lg p-1">
+    <div class="d-flex row justify-content-center flex-nowrap bd-highlight mb-3 text-center fw-bolder text-white">
+        <div class="col-1 bg-danger py-3 rounded-start">
+            <div>id</div>
+        </div>
+        <div class="col-2 bg-danger py-3">
+            <div>Pelicula</div>
+        </div>
+        <div class="col-4 bg-danger py-3">
+            <div>Comentario</div>
+        </div>
+        <div class="col-2 bg-danger py-3">
+            <div>Usuario</div>
+        </div>
+        <div class="col-2 bg-danger py-3">
+            <div>Editar</div>
+        </div>
+
+    </div>
+    {%for c in comentarios%}
+    <div class="row justify-content-center bd-highlight mb-3 text-center text-white" >
+        <div class="col-1 bg-secondary lh-lg p-1 rounded-start">
+            <div>{{ c[0] }}</div>
+        </div>
+        <div class="col-2 bg-secondary lh-lg p-1">
+            <div>{{ c[1] }}</div>
+        </div>
+        <div class="col-4 bg-secondary lh-lg p-1">
+            <div>{{ c[2] }}</div>
+        </div>
+        <div class="col-2 bg-secondary lh-lg p-1">
+            <div>{{ c[3] }}</div>
+        </div>
+        <div class="col-2 bg-secondary lh-lg rounded-end">
+            <div>
+                <a class="btn btn-primary" href="{{ url_for('comentario_blueprint.editarComentario', id=c[0]) }}" role="button">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a class="btn btn-danger" href="{{ url_for('comentario_blueprint.eliminarComentario', id=c[0]) }}" role="button">
+                     <i class="fas fa-trash-alt"></i>
+                 </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}  

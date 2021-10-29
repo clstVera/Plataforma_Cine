@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <!--Css-->
+    <link rel='stylesheet' type='text/css' href=" {{ url_for('static', filename='css/style.css') }}" >
+    <!---Font-->
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link
+        href='https://fonts.googleapis.com/css2?family=Ephesis&family=Roboto+Mono:wght@200&family=Roboto:wght@300;500;900&display=swap'
+        rel='stylesheet'>
+        
+        <!--IconosBostarp-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <title>Las Americas</title>
+</head>
+<body>
+
+    <!--header-->
+
+    <header class="navbar navbar-light bg-danger ">
+        <div class="container-fluid ">
+            <a class="navbar-brand " href=" {{ url_for('pelicula_blueprint.index') }}">
+                <img src= {{ url_for('static', filename="img/Logo.png") }} alt="" width="100" height="100" class="d-inline-block align-text-center">
+                <span class="display-6 fw-bold ">Las Americas Multiplex</span>
+
+            </a>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{{ url_for('usuario_blueprint.crearUsuarioFinal')}}" class="btn btn-light rounded-pill fw-bold" type="submit">Registrarse</a>
+                <a href="{{ url_for('usuario_blueprint.loginUsuario') }}" class="btn btn-light rounded-pill fw-bold" type="submit">Iniciar</a>
+                
+            </div>
+        </div>
+
+
+    </header>
+
+   
+
+    {% block body %}
+    
+    <div class="container my-3">
+        <div class="row justify-content-md-center my-3">
+            <div class="col col-xs-8 col-md-8 col-lg-6 my-3">
+                <form class="bg-secondary rounded-3 p-5 mb-3" name="FormUsuario" method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="form-floating mb-3">
+                        {{ form.Nombre(class_='form-control',id='floatingInput',placeholder=' ')}}
+                        {{ form.Nombre.label(for='floatingInput') }}
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{ form.Password(class_='form-control',id='floatingInput',placeholder=' ')}}
+                        {{ form.Password.label(for='floatingInput') }}
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{ form.Cedula(class_='form-control',id='floatingInput',placeholder=' ')}}
+                        {{ form.Cedula.label(for='floatingInput') }}
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{ form.Email(class_='form-control',id='floatingInput',placeholder=' ')}}
+                        {{ form.Email.label(for='floatingInput') }}
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{ form.Telefono(class_='form-control',id='floatingInput',placeholder=' ')}}
+                        {{ form.Telefono.label(for='floatingInput') }}
+                    </div>
+                    <div class="d-grid col-6 mx-auto">
+                        {{ form.enviar(class_='btn btn-primary',type='submit') }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    {% endblock %}
+    
+<!---Footer-->
+    <footer class="bg-dark text-white">
+        <div class="container ">
+            <nav class="row ms-4">
+                <div class="col-4 pt-4 pb-4  text-reset fw-bold h5"> Sobre nosotros
+                    </br></br>Terminos y Condiciones</div>
+
+                
+                <div class="col-8 pt-4 mt-4 d-flex justify-content-end  text-reset  ">
+                    <p class="h4 fw-bold">Siguenos en</p>
+                   
+                    <div class="d-flex justify-content-between">
+                    <a href="#" class="text-reset ms-4 me-4">
+                        <ion-icon name="logo-facebook"> </ion-icon>
+                    </a>
+
+                    <a href="#" class="text-reset ms-4 me-4">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+
+                    <a href="#" class="text-reset ms-4 me-4">
+                        <ion-icon name="logo-youtube"></ion-icon>
+                    </a>
+                
+            </div>
+
+
+                </div>
+
+            </nav>
+
+        </div>
+
+
+
+    </footer>
+
+
+
+<!--Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous">
+</script>
+
+<!--ionicons-->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

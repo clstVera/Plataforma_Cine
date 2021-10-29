@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <!--Css-->
+    <link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename="css/style.css") }} ">
+    <!---Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ephesis&family=Roboto+Mono:wght@200&family=Roboto:wght@300;500;900&display=swap"
+        rel="stylesheet">
+        
+        <!--IconosBostarp-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <title>Las Americas</title>
+</head>
+<body>
+
+    <!--header-->
+
+    <header class="navbar navbar-light bg-danger ">
+        <div class="container-fluid ">
+            <a class="navbar-brand " href=" {{ url_for('pelicula_blueprint.index') }}">
+                <img src= {{ url_for('static', filename="img/Logo.png") }} alt="" width="100" height="100" class="d-inline-block align-text-center">
+                <span class="display-6 fw-bold ">Las Americas Multiplex</span>
+
+            </a>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary rounded-pill me-md-2 fw-bold" type="button">Perfil de Usuario</button>
+                
+                <a href="{{ url_for('usuario_blueprint.cerrar') }}" class="btn btn-primary rounded-pill fw-bold" type="submit">Cerrar Sesion</a>
+    
+            </div>
+           
+        </div>
+
+    </header>
+
+
+ <!-- Buscador-->
+
+ <div class="container">
+    <nav class="navbar navbar-light pt-4  ">
+        <form method="POST" action="/busqueda">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label text-white fw-bold h5">BUSCAR</label>
+              <input type="text" class="form-control" name="Buscar"   placeholder="Ingrese ">
+             </div> 
+            
+            <button type="submit" class="btn btn-primary">Buscar</button>
+          </form>
+    </nav>
+</div>
+
+<!--Titulo-->
+    <div class="container text-center text-light  ">
+        <h1 class="display-2 fw-bold">Cartelera</h1>
+    </div>
+
+    
+    <!--Cartelera-->
+    
+        <div class="container d-flex flex-wrap">
+            
+            {% for p in peliculas %}
+
+                <div class="row pt-2 pb-5 ">
+                    <div class="col mx-4 ">
+                        <div class="card" style="width: 12rem;">
+                            <img src= {{ p[11] }} class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ p[1] }}</h5>
+                                <a href="{{ url_for('pelicula_blueprint.funcionesindex', idpelicula=p[0]) }} " class="btn btn-danger rounded-pill">Comprar tiquetes</a>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            {% endfor %}
+
+        </div>
+        
+ <!---Footer-->
+ <footer class="bg-dark text-white">
+    <div class="container ">
+        <nav class="row ms-4">
+            <div class="col-4 pt-4 pb-4  text-reset fw-bold h5"> Sobre nosotros
+                </br></br>Terminos y Condiciones</div>
+
+            
+            <div class="col-8 pt-4 mt-4 d-flex justify-content-end  text-reset  ">
+                <p class="h4 fw-bold">Siguenos en</p>
+               
+                <div class="d-flex justify-content-between">
+                <a href="#" class="text-reset ms-4 me-4">
+                    <ion-icon name="logo-facebook"> </ion-icon>
+                </a>
+
+                <a href="#" class="text-reset ms-4 me-4">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+
+                <a href="#" class="text-reset ms-4 me-4">
+                    <ion-icon name="logo-youtube"></ion-icon>
+                </a>
+            
+        </div>
+
+
+            </div>
+
+        </nav>
+
+    </div>
+
+
+
+</footer>
+
+
+
+<!--Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous">
+</script>
+
+<!--ionicons-->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>       
+

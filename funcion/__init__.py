@@ -57,3 +57,4 @@ def editarFuncion(idFuncion):
 def eliminarFuncion(idFuncion):
     sql_delete_funcion(idFuncion)
     return redirect(url_for('funcion_blueprint.verFuncion'))
+

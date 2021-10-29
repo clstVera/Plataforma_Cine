@@ -1,0 +1,50 @@
+{% extends "layaout.html" %}
+
+{% block body %}
+
+ <!-- Buscador-->
+
+<div class="container">
+    <nav class="navbar navbar-light pt-4  ">
+        <form method="POST" action="/busqueda">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label text-white fw-bold h5">BUSCAR</label>
+              <input type="text" class="form-control" name="Buscar"   placeholder="Ingrese ">
+             </div> 
+            
+            <button type="submit" class="btn btn-primary">Buscar</button>
+          </form>
+    </nav>
+</div>
+
+<!--Titulo-->
+    <div class="container text-center text-light  ">
+        <h1 class="display-2 fw-bold">Cartelera</h1>
+    </div>
+
+    
+    <!--Cartelera-->
+    
+        <div class="container d-flex flex-wrap">
+            
+            {% for p in peliculas %}
+
+                <div class="row pt-2 pb-5 ">
+                    <div class="col mx-4 ">
+                        <div class="card" style="width: 12rem;">
+                            <img src= {{ p[11] }} class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ p[1] }}</h5>
+                                <a href="{{ url_for('pelicula_blueprint.funcionesnologeo', idpelicula=p[0]) }} " class="btn btn-danger rounded-pill">Comprar tiquetes</a>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            {% endfor %}
+
+        </div>
+        
+        
+
+{% endblock %}

@@ -76,3 +76,5 @@ def sql_delete_pelicula(id):
         con.close()
     except Error as err:
         print(err)
+
+
